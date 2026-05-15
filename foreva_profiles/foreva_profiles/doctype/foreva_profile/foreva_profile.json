@@ -1,0 +1,195 @@
+{
+ "actions": [],
+ "autoname": "format:FP-{unique_id}",
+ "creation": "2026-05-15 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "unique_id",
+  "username",
+  "edit_token",
+  "column_break_ids",
+  "qr_code",
+  "section_order",
+  "order_reference",
+  "customer_name",
+  "customer_phone",
+  "customer_email",
+  "column_break_order",
+  "activated",
+  "section_profile",
+  "name_display",
+  "custom_message",
+  "column_break_profile",
+  "phone_display",
+  "phone_visible",
+  "whatsapp",
+  "section_social",
+  "instagram",
+  "section_emergency",
+  "emergency_name",
+  "emergency_phone"
+ ],
+ "fields": [
+  {
+   "fieldname": "unique_id",
+   "fieldtype": "Data",
+   "label": "Unique ID",
+   "read_only": 1,
+   "in_list_view": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "username",
+   "fieldtype": "Data",
+   "label": "Username",
+   "description": "Custom URL handle \u2014 letters, numbers, hyphens only. e.g. atul-bhatt",
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "edit_token",
+   "fieldtype": "Data",
+   "label": "Edit Token",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "column_break_ids",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qr_code",
+   "fieldtype": "Attach Image",
+   "label": "QR Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_order",
+   "fieldtype": "Section Break",
+   "label": "Order Info"
+  },
+  {
+   "fieldname": "order_reference",
+   "fieldtype": "Data",
+   "label": "Order Reference",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "in_list_view": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_phone",
+   "fieldtype": "Data",
+   "label": "Customer Phone"
+  },
+  {
+   "fieldname": "customer_email",
+   "fieldtype": "Data",
+   "label": "Customer Email",
+   "options": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_order",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "activated",
+   "fieldtype": "Check",
+   "label": "Profile Activated",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "section_profile",
+   "fieldtype": "Section Break",
+   "label": "Public Profile"
+  },
+  {
+   "fieldname": "name_display",
+   "fieldtype": "Data",
+   "label": "Display Name"
+  },
+  {
+   "fieldname": "custom_message",
+   "fieldtype": "Small Text",
+   "label": "Custom Message"
+  },
+  {
+   "fieldname": "column_break_profile",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "phone_display",
+   "fieldtype": "Data",
+   "label": "Phone (Public)"
+  },
+  {
+   "fieldname": "phone_visible",
+   "fieldtype": "Check",
+   "label": "Show Phone Publicly",
+   "default": "0"
+  },
+  {
+   "fieldname": "whatsapp",
+   "fieldtype": "Data",
+   "label": "WhatsApp Number"
+  },
+  {
+   "fieldname": "section_social",
+   "fieldtype": "Section Break",
+   "label": "Social"
+  },
+  {
+   "fieldname": "instagram",
+   "fieldtype": "Data",
+   "label": "Instagram Handle"
+  },
+  {
+   "fieldname": "section_emergency",
+   "fieldtype": "Section Break",
+   "label": "Emergency Contact"
+  },
+  {
+   "fieldname": "emergency_name",
+   "fieldtype": "Data",
+   "label": "Emergency Contact Name"
+  },
+  {
+   "fieldname": "emergency_phone",
+   "fieldtype": "Data",
+   "label": "Emergency Contact Phone"
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Foreva Profiles",
+ "name": "Foreva Profile",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

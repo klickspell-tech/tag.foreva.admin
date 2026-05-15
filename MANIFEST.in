@@ -1,0 +1,2 @@
+include foreva_profiles/templates/*
+recursive-include foreva_profiles *.html *.js *.css *.png *.jpg
