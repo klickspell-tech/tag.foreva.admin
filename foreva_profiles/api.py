@@ -12,12 +12,12 @@ def _generate_id(length):
 
 def _get_profile(identifier):
     """Look up by unique_id first, then username."""
-    names = frappe.get_all("Foreva Profile", filters={"unique_id": identifier}, limit=1)
+    names = frappe.get_all("Foreva Profile", filters={"unique_id": identifier}, limit=1, ignore_permissions=True)
     if not names:
-        names = frappe.get_all("Foreva Profile", filters={"username": identifier}, limit=1)
+        names = frappe.get_all("Foreva Profile", filters={"username": identifier}, limit=1, ignore_permissions=True)
     if not names:
         frappe.throw("Profile not found", frappe.DoesNotExistError)
-    return frappe.get_doc("Foreva Profile", names[0].name)
+    return frappe.get_doc("Foreva Profile", names[0].name, ignore_permissions=True)
 
 
 @frappe.whitelist(allow_guest=True)
