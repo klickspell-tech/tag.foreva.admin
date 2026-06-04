@@ -29,7 +29,7 @@ class ForevaProfile(Document):
             frappe.log_error("qrcode not installed — skipping QR generation")
             return
 
-        url = f"https://forevastore.com/p/{self.unique_id}"
+        url = f"https://tag.forevastore.com/p/{self.unique_id}"
         qr = qrcode.QRCode(version=1, box_size=10, border=4)
         qr.add_data(url)
         qr.make(fit=True)
@@ -55,7 +55,7 @@ class ForevaProfile(Document):
             return
 
         name = self.customer_name or "there"
-        edit_link = f"https://forevastore.com/edit/{self.unique_id}"
+        edit_link = f"https://tag.forevastore.com/edit/{self.unique_id}"
 
         frappe.sendmail(
             now=True,
