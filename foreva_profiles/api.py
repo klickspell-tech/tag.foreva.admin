@@ -106,6 +106,37 @@ def update_profile(unique_id, session_token, **kwargs):
         if field in kwargs:
             setattr(profile, field, kwargs[field])
 
+    first_activation = not bool(profile.activated)
     profile.activated = 1
     profile.save(ignore_permissions=True)
+
+    if first_activation:
+        _send_activation_email(profile)
+
     return profile.username or profile.unique_id
+
+
+def _send_activation_email(profile):
+    if not profile.customer_email:
+        return
+
+    name = profile.customer_name or "there"
+    handle = profile.username or profile.unique_id
+    public_link = f"https://tag.forevastore.com/p/{handle}"
+
+    frappe.sendmail(
+        now=True,
+        recipients=[profile.customer_email],
+        subject="Your Foreva profile is live",
+        message=f"""Hi {name},
+
+Your profile is set up and live:
+
+{public_link}
+
+This is the page anyone sees when they scan the QR on your tag. You can update it anytime — the link stays the same.
+
+—
+Team Foreva
+forevastore.com""",
+    )
