@@ -25,23 +25,24 @@ class ForevaProfile(Document):
     def _generate_qr(self):
         try:
             import qrcode
+            from qrcode.image.svg import SvgPathImage
         except ImportError:
             frappe.log_error("qrcode not installed — skipping QR generation")
             return
 
         url = f"https://tag.forevastore.com/p/{self.unique_id}"
-        qr = qrcode.QRCode(version=1, box_size=10, border=4)
+        qr = qrcode.QRCode(version=1, box_size=10, border=4, image_factory=SvgPathImage)
         qr.add_data(url)
         qr.make(fit=True)
-        img = qr.make_image(fill_color="black", back_color="white")
+        img = qr.make_image()
 
         buffer = BytesIO()
-        img.save(buffer, format="PNG")
+        img.save(buffer)
         buffer.seek(0)
 
         file_doc = frappe.get_doc({
             "doctype": "File",
-            "file_name": f"qr_{self.unique_id}.png",
+            "file_name": f"qr_{self.unique_id}.svg",
             "content": buffer.getvalue(),
             "attached_to_doctype": "Foreva Profile",
             "attached_to_name": self.name,
